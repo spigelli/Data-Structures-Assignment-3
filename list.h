@@ -36,4 +36,8 @@ class List
     std::size_t find(const Item_Type& item);
     // Pretty print the list
     void pretty_print();
+    // Gets the item at position index. Both constant and modifiable versions are provided.
+    Item_Type& get(std::size_t index);
+    // Returns the number of items in the list.
+    std::size_t size() const;
 };

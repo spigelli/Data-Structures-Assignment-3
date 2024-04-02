@@ -1,5 +1,6 @@
 #include "queue.cpp"
 #include "linear_search.cpp"
+#include "insertion_sort.cpp"
 #include "test.h"
 #include <iostream>
 using namespace std;
@@ -73,7 +74,8 @@ void test_linear_search() {
   // Test the linear search function
   suite.addTest("Test the linear search function", []() {
     vector<int> v = create_vector();
-    // pretty_print_vector(v);
+    std::cout << "Vector: ";
+    pretty_print_vector(v);
     int target = get_random_int();
     cout << "Target: " << target << endl;
     int pos = init_linear_search(v, target);
@@ -82,9 +84,26 @@ void test_linear_search() {
   suite.run();
 }
 
+void test_insertion_sort() {
+  // Create a list of 10 random integers
+  List<int>* l = new List<int>();
+  for (int i = 0; i < 10; i++) {
+    l->insert(i, get_rand_int_());
+  }
+  std::cout << "Initial list: ";
+  l->pretty_print();
+  std::cout << std::endl;
+  // Sort the list
+  insertion_sort(l);
+  std::cout << "Sorted list: ";
+  l->pretty_print();
+  delete l;
+}
+
 int main() {
   test_testing();
   test_queue();
   test_linear_search();
+  test_insertion_sort();
   return 0;
 }

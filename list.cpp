@@ -184,4 +184,21 @@ void List<Item_Type>::pretty_print() {
   std::cout << "]";
 }
 
+template<typename Item_Type>
+Item_Type& List<Item_Type>::get(std::size_t index) {
+  if (index >= num_items) {
+    throw std::runtime_error("at: Index out of bounds");
+  }
+  Node<Item_Type>* current = head;
+  for (std::size_t i = 0; i < index; i++) {
+    current = current->getNext();
+  }
+  return current->getData();
+}
+
+template<typename Item_Type>
+std::size_t List<Item_Type>::size() const {
+  return num_items;
+}
+
 template class List<int>;
