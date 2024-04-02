@@ -23,4 +23,6 @@ class Queue
     bool empty() const;
     // Returns the number of items in the queue.
     std::size_t size() const;
+    // Pretty print the queue
+    void pretty_print();
 };
