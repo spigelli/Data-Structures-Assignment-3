@@ -24,10 +24,11 @@ int get_random_int() {
 }
 
 vector<int> create_vector() {
+  vector<int> v;
   for (int i = 0; i < 15; i++) {
-    vector<int> v;
     v.push_back(get_random_int());
   }
+  return v;
 }
 
 void pretty_print_vector(vector<int>& v) {
@@ -37,13 +38,9 @@ void pretty_print_vector(vector<int>& v) {
     if (i < v.size() - 1) {
       cout << ", ";
     }
-    cout << "}";
   }
+  cout << "}";
   cout << endl;
-}
-
-int init_linear_search(vector<int>& items, int target) {
-  return linear_search(items, target, items.size() - 1);
 }
 
 int linear_search(vector<int>& items, int target, size_t pos) {
@@ -56,4 +53,8 @@ int linear_search(vector<int>& items, int target, size_t pos) {
     return pos;
   }
   return linear_search(items, target, pos - 1);
+}
+
+int init_linear_search(vector<int>& items, int target) {
+  return linear_search(items, target, items.size() - 1);
 }

@@ -61,8 +61,30 @@ void test_queue() {
   suite.run();
 }
 
+void test_linear_search() {
+  TestSuite suite("Linear Search Tests");
+  // Create a vector of 15 random integers
+  suite.addTest("Create a vector of 15 random integers", []() {
+    std::cout << "Creating a vector of 15 random integers" << std::endl;
+    vector<int> v = create_vector();
+    std:: cout << "Vector: ";
+    pretty_print_vector(v);
+  });
+  // Test the linear search function
+  suite.addTest("Test the linear search function", []() {
+    vector<int> v = create_vector();
+    // pretty_print_vector(v);
+    int target = get_random_int();
+    cout << "Target: " << target << endl;
+    int pos = init_linear_search(v, target);
+    cout << "Position of last occurrence of target: " << pos << endl;
+  });
+  suite.run();
+}
+
 int main() {
   test_testing();
   test_queue();
+  test_linear_search();
   return 0;
 }
