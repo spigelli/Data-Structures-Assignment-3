@@ -25,4 +25,6 @@ class Queue
     std::size_t size() const;
     // Pretty print the queue
     void pretty_print();
+    // Moves the front of the queue to the back of the queue.
+    void move_to_rear();
 };

@@ -80,4 +80,13 @@ void Queue<Item_Type>::pretty_print() {
   std::cout << "] <- Front" << std::endl;
 }
 
+template<typename Item_Type>
+void Queue<Item_Type>::move_to_rear() {
+  if (empty()) {
+    throw std::runtime_error("move_to_rear: Attempt to move the front of an empty queue");
+  }
+  Item_Type item = pop();
+  push(item);
+}
+
 template class Queue<int>;

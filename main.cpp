@@ -1,4 +1,5 @@
 #include "queue.cpp"
+#include "linear_search.cpp"
 #include "test.h"
 #include <iostream>
 using namespace std;
@@ -29,7 +30,31 @@ void test_queue() {
   TestSuite suite("Queue Tests");
   // Instantiate and add ten integers to the queue
   suite.addTest("Create a queue with ten integers", []() {
+    cout << endl;
     Queue<int>* q = create_ten_int_queue();
+    q->pretty_print();
+    delete q;
+  });
+  // Display the queue using pop
+  suite.addTest("Display all elements using member functions", []() {
+    cout << endl;
+    Queue<int>* q = create_ten_int_queue();
+    std::cout << "Initial queue: ";
+    q->pretty_print();
+    std::cout << endl << "Popping all elements: ";
+    while (!q->empty()) {
+      cout << q->pop() << endl;
+    }
+    delete q;
+  });
+  // Test the move_to_rear function
+  suite.addTest("Test the move_to_rear function", []() {
+    cout << endl;
+    Queue<int>* q = create_ten_int_queue();
+    std::cout << "Initial queue: ";
+    q->pretty_print();
+    std::cout << endl << "Moving the front to the rear: ";
+    q->move_to_rear();
     q->pretty_print();
     delete q;
   });
